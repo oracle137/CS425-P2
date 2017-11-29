@@ -145,41 +145,15 @@ def start():
 
     plt.show()
 
-    plotgraphs(s,np.arange(len(s)) + 1,'Value')
+    plotgraphs(s,np.arange(len(s)) + 1,'Value','Principal Components','Singular Value')
 
-    fig = plt.figure(figsize=(8, 5))
-
-    plt.plot(s, 'o-')
-    plt.title('Singluar Values over X')
-    plt.xlabel('X')
-    plt.ylabel('Singluar Values')
-
-    leg = plt.legend(["Singluar Values"], loc='best', borderpad=0.3,
-                     shadow=False, prop=matplotlib.font_manager.FontProperties(size='small'),
-                     markerscale=0.4)
-    leg.get_frame().set_alpha(0.4)
-    leg.draggable(state=True)
-    plt.show()
 
     s = s**2
     ksum = 0
     for sum in s:
         ksum = ksum + sum
     variancefactor = np.cumsum(s) / ksum
-    plotgraphs(variancefactor,np.arange(len(variancefactor)) + 1,'Proportion of Variance')
-    fig = plt.figure(figsize=(8, 5))
-
-    plt.plot(variancefactor, 'o-')
-    plt.title('Percent of Variance covered by the first k Singular values')
-    plt.xlabel('k')
-    plt.ylabel('Percent')
-
-    leg = plt.legend(["Percent of Variance"], loc='best', borderpad=0.3,
-                     shadow=False, prop=matplotlib.font_manager.FontProperties(size='small'),
-                     markerscale=0.4)
-    leg.get_frame().set_alpha(0.4)
-    leg.draggable(state=True)
-    plt.show()
+    plotgraphs(variancefactor,np.arange(len(variancefactor)) + 1,'Percent of Variance covered by the first k Singular values','Principal Compnents','Percent')
 
     k = 3
     first14PC = v[:,:k]

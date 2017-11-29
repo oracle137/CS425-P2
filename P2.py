@@ -2,9 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
-from sklearn.metrics.pairwise import pairwise_distances
-from sklearn.metrics.pairwise import euclidean_distances
-import math
 
 
 def dunn(loc,pcdata):
@@ -12,7 +9,6 @@ def dunn(loc,pcdata):
     max_diameter = diameter(loc,pcdata)
     min_dist = min_cluster_distances(loc,pcdata)
     return min_dist/max_diameter,max_diameter,min_dist
-
 
 
 def min_cluster_distances(loc,pcdata):
@@ -41,8 +37,6 @@ def diameter(loc,pcdata):
 
 
 def plotgraphs(vals,vals2,plotname,xlabel,ylabel):
-    fig = plt.figure(figsize=(8, 5))
-    vals2 = np.arange(len(vals)) + 1
     plt.plot(vals,'o-')
     plt.title(plotname)
     plt.xlabel(xlabel)
